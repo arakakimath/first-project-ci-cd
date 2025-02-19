@@ -33,9 +33,14 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+    - name: Build and Push
+      uses: docker/build-push-action@v6
+      with:
+        push: true
+        tags: arakakimath/first-project-ci-cd:${{ steps.generate_tag.outputs.sha }}, arakakimath/first-project-ci-cd:latest
 
-    - name: Build docker image
-      run: docker build -t arakakimath/first-project-ci-cd:${{ steps.generate_tag.outputs.sha }} .
+    # - name: Build docker image
+    #   run: docker build -t arakakimath/first-project-ci-cd:${{ steps.generate_tag.outputs.sha }} .
 
-    - name: Push image
-      run: docker push arakakimath/first-project-ci-cd:${{ steps.generate_tag.outputs.sha }}
+    # - name: Push image
+    #   run: docker push arakakimath/first-project-ci-cd:${{ steps.generate_tag.outputs.sha }}
