@@ -23,3 +23,6 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm test
+
+    - name: Build docker image
+      run: docker build -t first-project-ci-cd:latest .
