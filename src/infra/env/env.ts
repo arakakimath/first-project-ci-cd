@@ -1,7 +1,11 @@
 import { z } from 'zod'
 
 export const envSchema = z.object({
-  DATABASE_URL: z.string().url().optional().default('something'),
+  // DATABASE_URL: z
+  //   .string()
+  //   .url()
+  //   .optional()
+  //   .default('something://something.com'),
   PORT: z.coerce.number().optional().default(3333),
 })
 
