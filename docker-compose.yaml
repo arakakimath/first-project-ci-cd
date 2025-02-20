@@ -1,7 +1,7 @@
 services:
   mongo:
     image: mongo:7.0
-    container_name: mongo
+    container_name: mongodevops
     environment:
       MONGO_INITDB_ROOT_USERNAME: mongodb
       MONGO_INITDB_ROOT_PASSWORD: docker
@@ -12,7 +12,7 @@ services:
       - ./data/mg:/data/db
 
   order-logistics-api:
-    container_name: order-logistics-api
+    container_name: order-logistics-api-devops
     build:
       context: .
     ports:
